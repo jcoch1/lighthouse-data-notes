@@ -47,8 +47,9 @@ FILTER = [':)']
 LANGUAGES = ['en']
 
 
-def main():
-    with open('datastream.txt', 'a') as f:
+def main(location='C:/Users/jcoch/Data',name='output'):
+    save_path = os.path.join(location,name+'.txt')
+    with open(save_path, 'a') as f:
         # api.GetStreamFilter will return a generator that yields one status
         # message (i.e., Tweet) at a time as a JSON dictionary.
         for line in api.GetStreamFilter(track=FILTER, languages=LANGUAGES):
